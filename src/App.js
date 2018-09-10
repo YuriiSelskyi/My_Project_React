@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import FormInput from './FormInput';
 
+
 class App extends Component {
 	state = {
 		list: []
@@ -8,20 +9,19 @@ class App extends Component {
 	add = (str) => {
 		console.log(str);
 		this.setState({list: [...this.state.list, str]});
-		const numbers = [1, 2, 3, 4, 5];
-		const listItems = numbers.map((number) =>
-			<li key={number.toString()}>
-				{number}
-			</li>);
-		return (
-			<ul>{listItems}</ul>
-		);
-		console.log(numbers);
+		console.log(this.state.list);
+		
 	}
-	render() {     
+	
+	render() { 
+	const listItems = this.state.list.map((item, i) =>
+		<li>{(i+1) + ") "}{item}</li>
+	);
 	return (<div>		
-				<FormInput item = {this.add}/>			
+				<FormInput item = {this.add}/>
+				<ul>{listItems}</ul>
 			</div>);
 	}
 }
+
 export default App;
