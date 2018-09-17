@@ -15,7 +15,7 @@ class App extends Component {
 	
 	render() { 
 	const listItems = this.state.list.map((item, i) =>
-		<li>{(i+1) + ") "}{item}</li>
+		<div><li>{(i+1) + ") "}{item}</li></div>
 	);
 	return (<div>		
 				<FormInput item = {this.add}/>

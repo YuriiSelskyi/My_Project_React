@@ -5,18 +5,19 @@ import {FormGroup, InputGroup, Button, FormControl} from 'react-bootstrap';
 class FormInput extends Component{
 	constructor(props) {
 		super(props);
-		this.state = {
-			data: ''
-		};
-		this.handleSubmit = this.handleSubmit.bind(this);
-		this.handlDataChange = this.handlDataChange.bind(this);
+
+		this.handleSubmit = this.handleSubmit.bind(this)
 	}
-	handlDataChange(event) {
-		this.setState({data: event.target.value});
-	}
+	//handlDataChange(event) {
+	//	this.setState({data: event.target.value});
+	//}
+	
 	handleSubmit(event) {
 		event.preventDefault();
-		this.props.item(this.state.data);
+		console.log(this.textInput);
+
+		this.props.item(this.textInput.value);
+
 	}
 	
   render() {
@@ -27,9 +28,9 @@ class FormInput extends Component{
 					<FormControl 
 					type="text" 
 					placeholder="data"
-					onChange={this.handlDataChange}/>
-					<InputGroup.Button>
-						<Button>Enter</Button>
+					ref={(input) =>{ this.textInput = input}}/>
+					<InputGroup.Button >
+						<Button onClick={this.handleSubmit} >Enter</Button>
 					</InputGroup.Button>
 				</InputGroup>
 			</FormGroup>
