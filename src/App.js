@@ -13,9 +13,17 @@ class App extends Component {
 		
 	}
 	
+	clear(i) {
+		console.log("asdasd", i);
+		this.state.list.splice(i, 1);
+		this.setState({list: [...this.state.list]})
+		
+
+	}
+
 	render() { 
 	const listItems = this.state.list.map((item, i) =>
-		<div><li>{(i+1) + ") "}{item}</li></div>
+		<div><li>{(i+1) + ") "}{item}  <button onClick={this.clear.bind(this, i)}>Delete</button></li></div>
 	);
 	return (<div>		
 				<FormInput item = {this.add}/>
