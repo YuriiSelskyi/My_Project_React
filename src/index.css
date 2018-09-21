@@ -6,10 +6,13 @@ body {
 
 .root {
   width: 70%;
-  margin: 150px auto;
+  margin: 70px auto;
 }
 
-.lists {
-	width: 70%;
-	margin: 150px auto;
+.marg{
+	margin-top: 15px;
+}
+
+.righ{
+	float: right;
 }

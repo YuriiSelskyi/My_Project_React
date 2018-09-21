@@ -1,36 +1,36 @@
 import React, { Component } from 'react';
-//import {FormGroup, InputGroup, Button, FormControl} from 'react-bootstrap';
+import {FormGroup, Tooltip, InputGroup, Button, FormControl} from 'react-bootstrap';
 
 
 class FormInput extends Component{
-	sumbit(event) {
-		event.preventDefault();
-		console.log('sumbit', this.testInput.value);
+	sumbit() {
+		if(!this.testInput.value.trim()) return false;
 		this.props.item(this.testInput.value);
+		this.testInput.value = '';
+	}
+
+	handleSubmit(event) {
+		event.preventDefault();
 	}
 
   render() {
     return (
-	//	<form onSubmit={this.handleSubmit} className = 'root'>
-	//		<FormGroup>
-	//			<InputGroup>
-	//				<FormControl 
-	//				type="text" 
-	//				placeholder="data"
-	//				ref={(input) => this.testInput = input}/>
-	//				<InputGroup.Button >
-	//					<Button onClick={this.sumbit.bind(this)} >Enter</Button>
-	//				</InputGroup.Button>
-	//			</InputGroup>
-	//		</FormGroup>
-	//	</form>
-	//);
-	//(
-    	<div>
-    		<input type="text" ref={(input) => this.testInput = input} />
-    		<button onClick={this.sumbit.bind(this)}>Sumbit</button>
-    	</div>
-    	);
+		<form onSubmit={this.handleSubmit} className = 'root'>
+			<FormGroup>
+				<InputGroup>
+					<FormControl 
+						type="text" 
+						placeholder="data"
+						inputRef={input => this.testInput = input}
+					/>
+					<InputGroup.Button >
+						<Button type="sumbit" onClick={this.sumbit.bind(this)} >Enter</Button>
+					</InputGroup.Button>
+				</InputGroup>
+			</FormGroup>
+		</form>
+	);
+
  }
 }
 
