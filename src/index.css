@@ -4,15 +4,28 @@ body {
   font-family: sans-serif;
 }
 
+.ButtonsStyle {
+	position:fixed;
+    margin-left:450px;
+    margin-top:-30px;
+    display:block;
+}
+
 .root {
   width: 70%;
   margin: 70px auto;
+  overflow-x: hidden;
 }
 
-.marg{
-	margin-top: 15px;
+.ChecboxSize {
+	width: 35px;
+    height: 35px;
 }
 
-.righ{
+
+.righ {
 	float: right;
 }
+
+
+
