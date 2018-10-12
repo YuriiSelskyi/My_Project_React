@@ -12,75 +12,74 @@ import {
 
 class FormButton extends Component {
 	state = {
-		q: -1,
-		values: null;
+		IndexElement: -1,
+		Values: null
 	};
-	clear(i) {
-		const newList = [...this.props.DataList];
-		newList.splice(i, 1);
-		this.props.DeletedList(newList);
+	Clear(IndexElementInMap) {
+		const NewList = [...this.props.DataList];
+		NewList.splice(IndexElementInMap, 1);
+		this.props.DeletedList(NewList);
 	}
 
-	changeElement(i) {
+	ChangeElement(IndexElementInMap) {
 		return (
-			<form onSubmit={this.submit.bind(this)}>
+			<form onSubmit={this.Submit.bind(this)}>
 				<input
 					type="text"
-					defaultValue={this.props.DataList[i].list}
-					value={this.state.values}
-					onChange={this.changValue.bind(this)}
+					defaultValue={this.props.DataList[IndexElementInMap].list}
+					value={this.state.Values}
+					onChange={this.ChangValue.bind(this)}
 				/>
 				<button>change</button>
 			</form>
 		);
 	}
 
-	changValue(event) {
-		let newList = [...this.props.DataList];
-		let i = this.state.q;
-		newList[i].list = event.target.value;
-		this.setState({ q: -1 });
-		this.props.DeletedList(newList);
+	ChangValue(event) {
+		let NewList = [...this.props.DataList];
+		NewList[this.state.IndexElement].list = event.target.value;
+		this.setState({IndexElement: -1 });
+		this.props.DeletedList(NewList);
 	}
 
-	submit(event) {
+	Submit(event) {
 		event.preventDefault();
 	}
 
-	edit(i) {
-		this.setState({ q: i });
+	Edit(IndexElementInMap) {
+		this.setState({IndexElement: IndexElementInMap});
 	}
 
-	change(i) {
-		const newList = [...this.props.DataList];
-		newList[i].done = !newList[i].done;
-		this.props.DeletedList(newList);
+	Change(IndexElementInMap) {
+		const NewList = [...this.props.DataList];
+		NewList[IndexElementInMap].done = !NewList[IndexElementInMap].done;
+		this.props.DeletedList(NewList);
 	}
 
 	render() {
-		const listItems = this.props.DataList.map((item, i) => (
+		const listItems = this.props.DataList.map((AllList, IndexElementInMap) => (
 			<ListGroup>
 				<ListGroupItem
-					bsStyle={`${this.props.DataList[i].done ? "info" : null}`}
-					className="flexboksMain"
+					bsStyle={`${this.props.DataList[IndexElementInMap].done ? "info" : null}`}
+					className="FlexboxMain;"
 				>
-					<div className="flexboksfirst">
-						{this.state.q === i ? this.changeElement(i) : item.list}
+					<div className="FlexboxFirst">
+						{this.state.IndexElement === IndexElementInMap ? this.ChangeElement(IndexElementInMap) : AllList.list}
 					</div>
-					<div className="flexbokssecond">
-						<div>{`${item.time}`}</div>
+					<div className="FlexboxSecond">
+						<div>{`${AllList.time}`}</div>
 						<div>
 							<FormGroup>
-								<Checkbox onClick={this.change.bind(this, i)} />
+								<Checkbox onClick={this.Change.bind(this, IndexElementInMap)} />
 							</FormGroup>
 						</div>
 						<div>
 							<ButtonToolbar>
 								<ButtonGroup>
-									<Button onClick={this.edit.bind(this, i)}>
+									<Button onClick={this.Edit.bind(this, IndexElementInMap)}>
 										<Glyphicon glyph="glyphicon glyphicon-pencil" />
 									</Button>
-									<Button onClick={this.clear.bind(this, i)}>
+									<Button onClick={this.Clear.bind(this, IndexElementInMap)}>
 										<Glyphicon glyph="glyphicon glyphicon-remove" />
 									</Button>
 								</ButtonGroup>

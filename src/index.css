@@ -3,7 +3,7 @@ body {
   padding: 0;
   font-family: sans-serif;
   background-size: cover;
-  background-image: url("C:/Users/yuriy/my_project/src/back.jpg");
+  background-image: url("C:/Users/yuriy/my_project/src/media/Background.jpg");
 }
 
 .ListsElement {
@@ -11,7 +11,7 @@ body {
 	margin: auto;
 }
 
-.flexboksMain {
+.FlexboxMain {
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
@@ -19,11 +19,11 @@ body {
 	position: relative;
 }
 
-.flexboksfirst {
+.FlexboxFirst {
 	margin-right: auto;
 }
 
-.flexbokssecond {
+.FlexboxSecond {
 	position: absolute;
 	right: 3px;
 	top: 3px;
@@ -33,30 +33,10 @@ body {
 	flex-wrap: wrap;
 	justify-content: flex-end;
 }
-/*.ButtonsStyle {
-	position:fixed;
-    margin-left: 70%;
-    margin-top:-30px;
-    display:block;
-}*/
 
-.root {
+.MainStyleFromInput {
   width: 55%;
   margin: 12.6% auto;
   overflow-x: hidden;
   margin-bottom: 30px;
 }
-
-/*
-.ChecboxSize {
-	width: 35px;
-    height: 35px;
-}*/
-
-
-/*.righ {
-	float: right;
-}
-*/
-
-

@@ -3,31 +3,31 @@ import { FormGroup, InputGroup, Button, FormControl } from "react-bootstrap";
 
 class FormInput extends Component {
 	state = {
-		isValid: null
+		IsValid: null
 	};
 
-	submit() {
+	Submit() {
 		if (this.testInput.value.trim()) {
 			this.props.AddElement(this.testInput.value);
 			this.testInput.value = "";
 			this.setState({
-				isValid: null
+				IsValid: null
 			});
 		} else {
 			this.setState({
-				isValid: "error"
+				IsValid: "error"
 			});
 		}
 	}
 
-	handleSubmit(event) {
+	HandleSubmit(event) {
 		event.preventDefault();
 	}
 
 	render() {
 		return (
-			<form onSubmit={this.handleSubmit} className="root">
-				<FormGroup validationState={this.state.isValid}>
+			<form onSubmit={this.HandleSubmit} className="MainStyleFromInput">
+				<FormGroup validationState={this.state.IsValid}>
 					<InputGroup>
 						<FormControl
 							type="text"
@@ -36,8 +36,8 @@ class FormInput extends Component {
 						/>
 						<InputGroup.Button>
 							<Button
-								type="submit"
-								onClick={this.submit.bind(this)}
+								type="Submit"
+								onClick={this.Submit.bind(this)}
 							>
 								Enter
 							</Button>

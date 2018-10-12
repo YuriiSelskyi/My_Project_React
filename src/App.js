@@ -7,33 +7,33 @@ class App extends Component {
 		data: []
 	};
 
-	add = str => {
-		let now = new Date(),
-			Hours = now.getHours(),
-			Minutes = now.getMinutes();
+	Add = str => {
+		let Now = new Date(),
+			Hours = Now.getHours(),
+			Minutes = Now.getMinutes();
 		if (Hours < 10) Hours = "0" + Hours;
 		if (Minutes < 10) Minutes = "0" + Minutes;
-		let timeCounter = "(" + Hours + ":" + Minutes + ")";
+		let TimeCounter = "(" + Hours + ":" + Minutes + ")";
 		let AllData = {
 			list: str,
-			time: timeCounter,
+			time: TimeCounter,
 			done: false,
 			changed: false
 		};
 		this.setState({ data: [...this.state.data, AllData] });
 	};
 
-	clear(newList) {
-		this.setState({ data: newList });
+	Clear(NewList) {
+		this.setState({ data: NewList });
 	}
 
 	render() {
 		return (
 			<div>
-				<FormInput AddElement={this.add.bind()} />
+				<FormInput AddElement={this.Add.bind()} />
 				<FormButton
 					DataList={this.state.data}
-					DeletedList={this.clear.bind(this)}
+					DeletedList={this.Clear.bind(this)}
 				/>
 			</div>
 		);
