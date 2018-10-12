@@ -18,10 +18,10 @@ class App extends Component {
 		let AllData = { 
 			list : str,
 			time : timeCounter, 
-			done : false
+			done : false,
+			changed : false
 		}
 		this.setState({data: [...this.state.data, AllData]});
-		console.log(this.state.data);
 	}
 	
 	clear(newList) {
