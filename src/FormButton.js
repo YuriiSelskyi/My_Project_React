@@ -6,8 +6,6 @@ import {
 	ListGroup,
 	ListGroupItem,
 	ButtonGroup,
-	FormControl,
-	InputGroup,
 	Button,
 	Glyphicon
 } from "react-bootstrap";
@@ -15,7 +13,7 @@ import {
 class FormButton extends Component {
 	state = {
 		q: -1,
-		values : null
+		values: null;
 	};
 	clear(i) {
 		const newList = [...this.props.DataList];
@@ -24,7 +22,6 @@ class FormButton extends Component {
 	}
 
 	changeElement(i) {
-		console.log(i);
 		return (
 			<form onSubmit={this.submit.bind(this)}>
 				<input
@@ -39,7 +36,6 @@ class FormButton extends Component {
 	}
 
 	changValue(event) {
-		//event.preventDefault();
 		let newList = [...this.props.DataList];
 		let i = this.state.q;
 		newList[i].list = event.target.value;
@@ -49,23 +45,9 @@ class FormButton extends Component {
 
 	submit(event) {
 		event.preventDefault();
-		// let newList = [...this.props.DataList];
-		// let i = this.state.q
-		// console.log(i);
-		 console.log(this.state.values);
-		// newList[i].list = this.state.values;
-		// this.setState({ q: -1 });
-		// this.props.DeletedList(newList);
 	}
 
 	edit(i) {
-		// const newList = [...this.props.DataList];
-		// newList[i].list = prompt("Please change", this.props.DataList[i].list);
-		// if (newList[i].list) this.props.DeletedList(newList);
-		// const newList = [...this.props.DataList];
-		// newList[i].changed = true;
-		// this.props.DeletedList(newList);
-		// this.setState({ed : !(this.state.ed)})
 		this.setState({ q: i });
 	}
 
