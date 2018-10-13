@@ -26,24 +26,25 @@ class FormButton extends Component {
 			<form onSubmit={this.Submit.bind(this)}>
 				<input
 					type="text"
-					defaultValue={this.props.DataList[IndexElementInMap].list}
 					value={this.state.Values}
+					defaultValue={this.props.DataList[IndexElementInMap].list}
 					onChange={this.ChangValue.bind(this)}
 				/>
-				<button>change</button>
+				<button type="button" onClick={this.Submit.bind(this)}>change</button>
 			</form>
 		);
 	}
 
 	ChangValue(event) {
-		let NewList = [...this.props.DataList];
-		NewList[this.state.IndexElement].list = event.target.value;
-		this.setState({IndexElement: -1 });
-		this.props.DeletedList(NewList);
+		this.setState({Values: event.target.value});
 	}
 
 	Submit(event) {
 		event.preventDefault();
+		const NewList = [...this.props.DataList];
+		NewList[this.state.IndexElement].list = this.state.Values;
+		this.setState({IndexElement: -1, Values: null})
+		this.props.DeletedList(NewList);
 	}
 
 	Edit(IndexElementInMap) {
@@ -63,12 +64,13 @@ class FormButton extends Component {
 					bsStyle={`${this.props.DataList[IndexElementInMap].done ? "info" : null}`}
 					className="FlexboxMain;"
 				>
-					<div className="FlexboxFirst">
-						{this.state.IndexElement === IndexElementInMap ? this.ChangeElement(IndexElementInMap) : AllList.list}
-					</div>
+					
+					<div className="List">{this.state.IndexElement === IndexElementInMap ? this.ChangeElement(IndexElementInMap) : AllList.list}</div>
+
+					
 					<div className="FlexboxSecond">
-						<div>{`${AllList.time}`}</div>
-						<div>
+						<div className="TimeStyle">{`${AllList.time}`}</div>
+						<div className="CheckboxStyle">
 							<FormGroup>
 								<Checkbox onClick={this.Change.bind(this, IndexElementInMap)} />
 							</FormGroup>
