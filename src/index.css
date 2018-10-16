@@ -2,36 +2,55 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-size: 100%;
+  background: #69BAE7;
   background-image: url("C:/Users/yuriy/my_project/src/media/Background.jpg");
+  background-repeat: no-repeat;
+  background-position: 50% 30px;
+  background-size: 360px;
 }
 
-.TimeStyle {
+.form-button-style {
+	border: 30px solid #3A5065;
+    border-radius: 50px;
+    border-width: 35px;
+    margin: 200px 8%;
+    background: #FEDB67;
+}
+
+.style {
+	display: flex;
+	flex-direction: row;
+}
+
+.time-style {
 	margin-right: -15px;
+	font-size: 11px;
 }
 
-.CheckboxStyle {
+.checkbox-style {
 	margin-top: 7px;
+	margin-left: -40px
 }
     
-.ListsElement {
-	width: 50%;
+.lists-element {
+	width: 83%;
 	margin: auto;
 }
 
-.FlexboxMain {
+.flexbox-main {
+	margin-left: 15px;
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	flex-wrap: wrap;
 	justify-content: space-around;
 	position: relative;
 }
 
-.List {
-	margin-right: 120px;
+.list {
+	margin-right: 78px;
 }
 
-.FlexboxSecond {
+.flexbox-second {
 	position: absolute;
 	right: 3px;
 	top: 3px;
@@ -42,9 +61,9 @@ body {
 	justify-content: flex-end;
 }
 
-.MainStyleFromInput {
-  width: 55%;
-  margin: 12.6% auto;
-  overflow-x: hidden;
-  margin-bottom: 30px;
-}
+.main-style-from-input {
+ 	width: 93%;
+  	margin: 20px auto;
+  	overflow-x: hidden;
+  	margin-bottom: 25px;
+  }
